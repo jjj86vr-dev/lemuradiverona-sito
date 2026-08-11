@@ -81,7 +81,7 @@ pre{ background:#2b211a; color:#ecdfc6; padding:12px 14px; border-radius:3px; ov
 
     <div class="box">
       <h2>3 &middot; Le pietre delle Fondamenta <span class="count" id="cnt-pietre"></span></h2>
-      <p class="nota">In ordine: la prima riga &egrave; la Pietra I. Ricorda: solo attivit&agrave; aperte da almeno vent'anni, verificate.</p>
+      <p class="nota">In ordine: la prima riga &egrave; la Pietra I. Ricorda: solo attivit&agrave; aperte da almeno trent'anni, verificate.</p>
       <table><thead><tr><th>Pietra</th><th>Nome</th><th></th></tr></thead>
       <tbody id="lista-pietre"></tbody></table>
       <div class="due" style="margin-top:14px;">
@@ -236,8 +236,8 @@ document.getElementById('p-aggiungi').addEventListener('click', function(){
   if (!n || !d){ alert('Servono nome e descrizione.'); return; }
   if (FONDAMENTA.length >= 10){ alert('Le pietre sono dieci: il registro è pieno.'); return; }
   var anno = parseInt(document.getElementById('p-anno').value, 10);
-  var annoMax = 2006;
-  if (!anno || anno > annoMax){ alert('Serve l\'anno di apertura, e deve essere di almeno vent\'anni fa (' + annoMax + ' o prima): è la regola delle Fondamenta.'); return; }
+  var annoMax = 1996;
+  if (!anno || anno > annoMax){ alert('Serve l\'anno di apertura, e deve essere di almeno trent\'anni fa (' + annoMax + ' o prima): è la regola delle Fondamenta.'); return; }
   FONDAMENTA.push({ n:n, a:anno, d:{ it:d, en:d, de:d } });
   document.getElementById('p-nome').value = ''; document.getElementById('p-desc').value = ''; document.getElementById('p-anno').value = '';
   ridisegna();

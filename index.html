@@ -2,24 +2,24 @@
 <html lang="it"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Le Mura di Verona — MMXXVII</title>
-<meta name="description" content="Sta per essere costruito un muro. Non di pietra: di nomi. Verona, San Valentino 2027.">
+<meta name="description" content="Sta nascendo un muro: cento mattoni, dieci pietre, le Dediche. Inserisci i tuoi dati e scopri se potrai accedere. Verona, San Valentino 2027.">
 <meta name="robots" content="index, follow">
 <style>
 *{ margin:0; padding:0; box-sizing:border-box; }
 :root{ --notte:#191410; --avorio:#ecdfc6; --sabbia:#c4b59a; --oro:#d9a24e; --oro2:#b3812f; }
-html,body{ height:100%; }
+html{ background:var(--notte); }
 body{ font-family:Optima,'Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
   background:var(--notte); color:var(--avorio); display:flex; flex-direction:column;
-  align-items:center; justify-content:center; text-align:center;
-  padding:40px 22px 120px; position:relative; overflow:hidden; min-height:100%; }
+  align-items:center; text-align:center; min-height:100svh;
+  padding:52px 22px 130px; position:relative; overflow-x:hidden; }
 body::before{ content:''; position:fixed; inset:0; pointer-events:none;
-  background: radial-gradient(70% 46% at 50% 32%, rgba(217,162,78,.14), transparent 62%),
+  background: radial-gradient(70% 46% at 50% 30%, rgba(217,162,78,.14), transparent 62%),
     radial-gradient(120% 70% at 50% 108%, rgba(110,49,38,.38), transparent 60%); }
-.cornice{ position:fixed; inset:14px; border:1px solid rgba(179,129,47,.55); pointer-events:none; }
+.cornice{ position:fixed; inset:14px; border:1px solid rgba(179,129,47,.55); pointer-events:none; z-index:2; }
 .eyebrow{ font-size:12px; letter-spacing:.52em; text-indent:.52em; text-transform:uppercase;
   color:var(--sabbia); position:relative; }
 .eyebrow b{ color:var(--oro); font-weight:600; }
-.muretto{ display:flex; gap:7px; margin:42px 0 0; position:relative; }
+.muretto{ display:flex; gap:7px; margin:34px 0 0; position:relative; }
 .mk{ width:86px; height:36px; border-radius:2px; background:#2a2019;
   box-shadow:inset 0 2px 0 rgba(255,255,255,.05), inset 0 -3px 0 rgba(0,0,0,.5); }
 .mk.due{ background:#231b15; }
@@ -27,22 +27,40 @@ body::before{ content:''; position:fixed; inset:0; pointer-events:none;
   box-shadow:0 0 22px rgba(217,162,78,.35); display:flex; align-items:center; justify-content:center; }
 .mk.vuoto span{ font-size:19px; font-weight:700; color:var(--oro); }
 @media (max-width:560px){ .mk:first-child, .mk:last-child{ display:none; } }
-h1{ margin:44px 0 0; font-size:clamp(30px,7vw,58px); font-weight:600; font-style:italic;
+h1{ margin:36px 0 0; font-size:clamp(28px,6.4vw,52px); font-weight:600; font-style:italic;
   line-height:1.24; max-width:820px; position:relative;
   text-shadow:0 4px 16px rgba(0,0,0,.6); }
 h1 b{ color:var(--oro); font-style:normal; font-weight:600; }
-.filo{ width:120px; height:1px; background:var(--oro2); margin:40px auto; position:relative; }
+.filo{ width:120px; height:1px; background:var(--oro2); margin:32px auto; position:relative; }
 .filo::after{ content:'\25C6'; position:absolute; left:50%; top:50%; transform:translate(-50%,-52%);
   font-size:9px; color:var(--oro); background:var(--notte); padding:0 12px; }
-.corpo{ font-size:clamp(16px,2.6vw,21px); line-height:1.9; color:var(--avorio);
-  max-width:640px; position:relative; }
+.corpo{ font-size:clamp(15px,2.4vw,19px); line-height:1.85; color:var(--avorio);
+  max-width:620px; position:relative; }
 .corpo b{ color:var(--oro); font-weight:600; }
-.regola{ margin-top:40px; font-size:13px; letter-spacing:.34em; text-indent:.34em;
+.requisiti{ display:flex; gap:14px; margin:30px 0 0; position:relative; flex-wrap:wrap; justify-content:center; }
+.req{ border:1px solid rgba(179,129,47,.5); border-radius:3px; padding:16px 22px 14px;
+  background:rgba(42,32,25,.55); min-width:230px; }
+.req .quanti{ font-size:11px; letter-spacing:.4em; text-indent:.4em; text-transform:uppercase;
+  color:var(--oro); font-weight:600; }
+.req .cosa{ margin-top:8px; font-size:15px; line-height:1.5; color:var(--avorio); }
+.req .cosa b{ color:var(--oro); font-weight:600; }
+.dediche-nota{ margin-top:14px; font-size:13px; color:var(--sabbia); position:relative; font-style:italic; }
+.invito{ margin-top:34px; font-size:clamp(16px,2.6vw,20px); line-height:1.7; max-width:560px; position:relative; }
+.invito b{ color:var(--oro); font-weight:600; }
+.cta{ display:inline-block; margin-top:20px; padding:16px 38px; position:relative;
+  font-family:inherit; font-size:15px; font-weight:700; letter-spacing:.22em; text-indent:.22em;
+  text-transform:uppercase; text-decoration:none; color:#191410;
+  background:linear-gradient(180deg, #e4b269, var(--oro) 45%, var(--oro2));
+  border:1px solid #8a6224; border-radius:3px;
+  box-shadow:0 6px 24px rgba(217,162,78,.35), inset 0 1px 0 rgba(255,255,255,.4); }
+.cta:hover{ filter:brightness(1.06); }
+.gratis{ margin-top:12px; font-size:12.5px; color:var(--sabbia); position:relative; }
+.regola{ margin-top:36px; font-size:13px; letter-spacing:.34em; text-indent:.34em;
   text-transform:uppercase; color:var(--oro); font-weight:600; position:relative; }
-.quando{ margin-top:14px; font-size:12px; letter-spacing:.24em; text-indent:.24em;
+.quando{ margin-top:12px; font-size:12px; letter-spacing:.24em; text-indent:.24em;
   text-transform:uppercase; color:var(--sabbia); position:relative; }
 .fondo{ position:fixed; left:0; right:0; bottom:0; height:74px; overflow:hidden;
-  display:flex; flex-direction:column; gap:6px; }
+  display:flex; flex-direction:column; gap:6px; z-index:1; }
 .cr{ display:flex; gap:6px; } .cr.s{ margin-left:-46px; }
 .mb{ flex:0 0 86px; height:34px; border-radius:2px; background:#2a2019;
   box-shadow:inset 0 2px 0 rgba(255,255,255,.05), inset 0 -3px 0 rgba(0,0,0,.5); }
@@ -59,16 +77,31 @@ h1 b{ color:var(--oro); font-style:normal; font-weight:600; }
     <div class="mk"></div><div class="mk due"></div>
   </div>
 
-  <h1>Che prezzo daresti a un posto<br><b>per sempre</b> nella storia di Verona?</h1>
+  <h1>Sta nascendo un muro.<br><b>Non tutti</b> potranno entrarci.</h1>
 
   <div class="filo"></div>
 
-  <p class="corpo">Sta per essere costruito un muro. Non di pietra: di nomi.<br>
-  Ci sar&agrave; spazio per <b>cento</b> &mdash; non uno di pi&ugrave;.<br>
-  Attivit&agrave;, famiglie, dediche: chi c&rsquo;&egrave;, resta.</p>
+  <p class="corpo">Cento mattoni, dieci pietre e le Dediche: un posto <b>per sempre</b>
+  nella storia di Verona. Ma il muro sceglie chi lo costruisce.</p>
+
+  <div class="requisiti">
+    <div class="req">
+      <div class="quanti">I cento mattoni</div>
+      <div class="cosa">attivit&agrave; aperte da almeno <b>6 anni</b></div>
+    </div>
+    <div class="req">
+      <div class="quanti">Le dieci pietre</div>
+      <div class="cosa">attivit&agrave; aperte da almeno <b>30 anni</b></div>
+    </div>
+  </div>
+  <div class="dediche-nota">Le Dediche sono per le persone: l&igrave; decide solo il cuore.</div>
+
+  <p class="invito"><b>Inserisci i tuoi dati</b> e scopri se potrai accedere al muro.</p>
+  <a class="cta" href="https://tally.so/r/XxA0MO">Scopri se puoi entrare</a>
+  <div class="gratis">La candidatura &egrave; gratuita e senza impegno &middot; ogni richiesta viene valutata</div>
 
   <div class="regola">Qui mura solo Verona.</div>
-  <div class="quando">La risposta arriva presto &middot; il muro apre a San Valentino 2027</div>
+  <div class="quando">Il muro apre a San Valentino 2027</div>
 
   <div class="fondo">
     <div class="cr"><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div><div class="mb"></div></div>
