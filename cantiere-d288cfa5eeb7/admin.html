@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Le Mura di Verona — Pannello del muratore</title>
+<style>
+*{ margin:0; padding:0; box-sizing:border-box; }
+:root{ --carta:#f6eedd; --carta2:#efe3cb; --ink:#2b211a; --bruno:#5c4632;
+  --mattone:#7c3a2b; --oro:#a67827; --sabbia:#c4b59a; --ok:#3e6b3a; }
+body{ font-family:Georgia,'Times New Roman',serif; background:var(--carta); color:var(--ink);
+  line-height:1.5; padding:28px 18px 60px; }
+.wrap{ max-width:860px; margin:0 auto; }
+h1{ font-size:26px; letter-spacing:.05em; text-transform:uppercase; }
+.eyebrow{ font-size:11px; letter-spacing:.4em; text-transform:uppercase; color:var(--bruno); margin-bottom:6px; }
+.sub{ color:var(--bruno); font-style:italic; margin-top:4px; }
+.box{ background:rgba(255,252,244,.7); border:1px solid var(--sabbia); border-top:3px solid var(--mattone);
+  padding:16px 18px; margin-top:22px; border-radius:2px; }
+.box h2{ font-size:13px; letter-spacing:.22em; text-transform:uppercase; color:var(--mattone); margin-bottom:10px; }
+.avviso{ border-top-color:var(--oro); font-size:14px; }
+button{ font-family:inherit; font-size:14px; padding:8px 16px; border:1px solid var(--mattone);
+  background:var(--mattone); color:var(--carta); border-radius:2px; cursor:pointer; }
+button.ghost{ background:transparent; color:var(--mattone); }
+button.mini{ padding:3px 10px; font-size:12px; }
+button:disabled{ opacity:.4; cursor:default; }
+input[type=text], select{ font-family:inherit; font-size:14px; padding:7px 9px; border:1px solid var(--sabbia);
+  background:#fffdf7; border-radius:2px; width:100%; color:var(--ink); }
+label{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--bruno); display:block; margin:10px 0 3px; }
+table{ width:100%; border-collapse:collapse; margin-top:6px; }
+td, th{ text-align:left; padding:7px 8px; border-bottom:1px solid rgba(196,181,154,.5); font-size:14px; vertical-align:top; }
+th{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--bruno); }
+.due{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:600px){ .due{ grid-template-columns:1fr; } }
+.esito{ margin-top:10px; font-size:14px; color:var(--ok); font-weight:bold; min-height:20px; }
+code, pre{ font-family:Consolas,Menlo,monospace; font-size:13px; }
+pre{ background:#2b211a; color:#ecdfc6; padding:12px 14px; border-radius:3px; overflow-x:auto; margin-top:8px; line-height:1.6; }
+.nota{ font-size:12.5px; color:var(--bruno); margin-top:8px; font-style:italic; }
+#pannello{ display:none; }
+.count{ color:var(--bruno); font-size:13px; font-style:italic; }
+</style></head>
+<body><div class="wrap">
+  <div class="eyebrow">MMXXVI &#9670; Verona</div>
+  <h1>Il pannello del muratore</h1>
+  <p class="sub">Aggiungi, togli e correggi mattoni e pietre senza toccare il codice.</p>
+
+  <div class="box avviso">
+    <b>Come funziona (e perch&eacute; non c'&egrave; una password).</b>
+    Il muro &egrave; una pagina senza server: i dati vivono dentro <code>index.html</code>.
+    Questo pannello legge quel file, ti fa fare le modifiche, e ti riconsegna il file
+    aggiornato da pubblicare. Da solo non cambia niente online &mdash; la chiave vera
+    &egrave; il tuo account GitHub: solo chi pu&ograve; fare <code>git push</code> pu&ograve; murare davvero.
+  </div>
+
+  <div class="box" id="carica">
+    <h2>1 &middot; Carica il muro</h2>
+    <p style="font-size:14px;">Scegli il file <code>index.html</code> dalla cartella
+    <code>Documents\lemuradiverona\presale</code> del tuo PC.</p>
+    <p style="margin-top:10px;"><input type="file" id="file" accept=".html"></p>
+    <div class="esito" id="esito-carica"></div>
+  </div>
+
+  <div id="pannello">
+    <div class="box">
+      <h2>2 &middot; I mattoni murati <span class="count" id="cnt-mattoni"></span></h2>
+      <table><thead><tr><th>Nome</th><th>Quartiere</th><th></th></tr></thead>
+      <tbody id="lista-mattoni"></tbody></table>
+      <div class="due" style="margin-top:14px;">
+        <div><label>Nome dell'attivit&agrave; (o della dedica)</label><input type="text" id="m-nome" placeholder="Es. Trattoria al Ponte"></div>
+        <div><label>Quartiere</label><select id="m-quartiere">
+          <option>Citt&agrave; Antica</option><option>Veronetta</option><option>Borgo Trento</option>
+          <option>San Zeno</option><option>Fuori le Mura</option><option>Le Dediche</option>
+        </select></div>
+      </div>
+      <label>Descrizione (due righe, in italiano)</label><input type="text" id="m-desc" placeholder="Es. Cucina veronese in via Sottoriva 12.">
+      <div class="due">
+        <div><label>Descrizione in inglese (vuota = uso l'italiano)</label><input type="text" id="m-desc-en"></div>
+        <div><label>Descrizione in tedesco (vuota = uso l'italiano)</label><input type="text" id="m-desc-de"></div>
+      </div>
+      <label>Link al sito (facoltativo)</label><input type="text" id="m-link" placeholder="https://...">
+      <p style="margin-top:12px;"><button id="m-aggiungi">Mura questo mattone</button></p>
+    </div>
+
+    <div class="box">
+      <h2>3 &middot; Le pietre delle Fondamenta <span class="count" id="cnt-pietre"></span></h2>
+      <p class="nota">In ordine: la prima riga &egrave; la Pietra I. Ricorda: solo attivit&agrave; aperte da almeno vent'anni, verificate.</p>
+      <table><thead><tr><th>Pietra</th><th>Nome</th><th></th></tr></thead>
+      <tbody id="lista-pietre"></tbody></table>
+      <div class="due" style="margin-top:14px;">
+        <div><label>Nome dell'attivit&agrave;</label><input type="text" id="p-nome"></div>
+        <div><label>Anno di apertura (es. 1955)</label><input type="text" id="p-anno"></div>
+      </div>
+      <div class="due">
+        <div><label>Descrizione (in italiano)</label><input type="text" id="p-desc"></div>
+      </div>
+      <p style="margin-top:12px;"><button id="p-aggiungi">Posa questa pietra</button></p>
+    </div>
+
+    <div class="box">
+      <h2>4 &middot; Contatti e modulo</h2>
+      <div class="due">
+        <div><label>Link del modulo di prenotazione (Tally/Google Form)</label><input type="text" id="c-link"></div>
+        <div><label>Email del progetto</label><input type="text" id="c-email"></div>
+      </div>
+      <label>Partita IVA</label><input type="text" id="c-piva">
+    </div>
+
+    <div class="box">
+      <h2>5 &middot; Pubblica</h2>
+      <p style="font-size:14px;">Scarica il file aggiornato, poi incolla queste righe in PowerShell:</p>
+      <p style="margin-top:12px;"><button id="scarica">Scarica index.html aggiornato</button></p>
+      <div class="esito" id="esito-scarica"></div>
+<pre>cd $HOME\Documents\lemuradiverona
+Copy-Item $HOME\Downloads\index.html presale\index.html -Force
+git add presale/index.html
+git commit -m "Aggiorno il muro"
+git push</pre>
+      <p class="nota">Prima di pubblicare puoi aprire il file scaricato col browser e controllare che il muro sia come lo vuoi. Se il sito &egrave; collegato a GitHub via Netlify, dopo il push si aggiorna da solo.</p>
+    </div>
+  </div>
+
+<script>
+'use strict';
+var SRC = '';            // il sorgente di index.html caricato
+var MURATI = [];         // i dati vivi
+var FONDAMENTA = [];
+var COMMENTI_MURATI = ''; // blocchi /* ... */ da conservare (es. Baraldi sospeso)
+
+function estraiBlocco(nomeVar){
+  var re = new RegExp('var ' + nomeVar + ' = \\[([\\s\\S]*?)\\n\\];');
+  var m = SRC.match(re);
+  return m ? m[1] : null;
+}
+function parseArray(testo){
+  // conserva i blocchi commentati, poi valuta le righe vive
+  var commenti = (testo.match(/\/\*[\s\S]*?\*\//g) || []).join('\n');
+  var vivo = testo.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+  var arr = new Function('return [' + vivo + ']')();
+  return { arr: arr.filter(Boolean), commenti: commenti };
+}
+function tri(v){
+  if (v == null) return { it:'', en:'', de:'' };
+  if (typeof v === 'string') return { it:v, en:v, de:v };
+  return { it:v.it || '', en:v.en || v.it || '', de:v.de || v.it || '' };
+}
+function js(s){ return "'" + String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'") + "'"; }
+function rigaJs(r){
+  var out = "  { n:" + js(r.n) + ", q:" + js(r.q) + ",\n" +
+    "    d:{ it:" + js(r.d.it) + ",\n        en:" + js(r.d.en) + ",\n        de:" + js(r.d.de) + " }";
+  if (r.o){ var o = tri(r.o);
+    out += ",\n    o:{ it:" + js(o.it) + ", en:" + js(o.en) + ", de:" + js(o.de) + " }"; }
+  if (r.a) out += ",\n    a:" + parseInt(r.a, 10);
+  if (r.u) out += ",\n    u:" + js(r.u);
+  return out + " },";
+}
+function serializza(nomeVar, righe, commenti){
+  var corpo = (commenti ? commenti + '\n' : '') + righe.map(rigaJs).join('\n');
+  return 'var ' + nomeVar + ' = [\n' + corpo + '\n];';
+}
+function valoreConfig(chiave){
+  var m = SRC.match(new RegExp(chiave + ":\\s*'([^']*)'"));
+  return m ? m[1] : '';
+}
+function romano(i){ return ['I','II','III','IV','V','VI','VII','VIII','IX','X'][i] || (i+1); }
+
+function ridisegna(){
+  var lm = document.getElementById('lista-mattoni'); lm.innerHTML = '';
+  MURATI.forEach(function(r, i){
+    var tr = document.createElement('tr');
+    var t1 = document.createElement('td'); t1.textContent = r.n;
+    var t2 = document.createElement('td'); t2.textContent = r.q;
+    var t3 = document.createElement('td');
+    var del = document.createElement('button'); del.className = 'mini ghost'; del.textContent = 'Togli';
+    del.onclick = function(){ if (confirm('Tolgo "' + r.n + '" dal muro?')){ MURATI.splice(i,1); ridisegna(); } };
+    t3.appendChild(del);
+    tr.appendChild(t1); tr.appendChild(t2); tr.appendChild(t3); lm.appendChild(tr);
+  });
+  document.getElementById('cnt-mattoni').textContent = '— ' + MURATI.length + ' su 100, ne restano ' + (100 - MURATI.length);
+  var lp = document.getElementById('lista-pietre'); lp.innerHTML = '';
+  FONDAMENTA.forEach(function(r, i){
+    var tr = document.createElement('tr');
+    var t1 = document.createElement('td'); t1.textContent = 'Pietra ' + romano(i);
+    var t2 = document.createElement('td'); t2.textContent = r.n + (r.a ? ' — dal ' + r.a : '');
+    var t3 = document.createElement('td');
+    var del = document.createElement('button'); del.className = 'mini ghost'; del.textContent = 'Togli';
+    del.onclick = function(){ if (confirm('Tolgo la pietra di "' + r.n + '"?')){ FONDAMENTA.splice(i,1); ridisegna(); } };
+    t3.appendChild(del);
+    tr.appendChild(t1); tr.appendChild(t2); tr.appendChild(t3); lp.appendChild(tr);
+  });
+  document.getElementById('cnt-pietre').textContent = '— ' + FONDAMENTA.length + ' su 10';
+}
+
+document.getElementById('file').addEventListener('change', function(e){
+  var f = e.target.files[0]; if (!f) return;
+  var lettore = new FileReader();
+  lettore.onload = function(){
+    SRC = String(lettore.result);
+    var esito = document.getElementById('esito-carica');
+    try {
+      var bm = estraiBlocco('MURATI'), bf = estraiBlocco('FONDAMENTA');
+      if (bm === null || bf === null) throw new Error('non trovo MURATI/FONDAMENTA: è il file giusto?');
+      var pm = parseArray(bm), pf = parseArray(bf);
+      MURATI = pm.arr.map(function(r){ return { n:r.n, q:r.q, d:tri(r.d), o:r.o, u:r.u }; });
+      COMMENTI_MURATI = pm.commenti;
+      FONDAMENTA = pf.arr.map(function(r){ return { n:r.n, q:r.q || '', d:tri(r.d), a:r.a, u:r.u }; });
+      document.getElementById('c-link').value  = valoreConfig('LINK_PRENOTAZIONE');
+      document.getElementById('c-email').value = valoreConfig('EMAIL');
+      document.getElementById('c-piva').value  = valoreConfig('PIVA');
+      document.getElementById('pannello').style.display = 'block';
+      esito.textContent = 'Muro caricato: ' + MURATI.length + ' mattoni, ' + FONDAMENTA.length + ' pietre.';
+      ridisegna();
+    } catch (err){
+      esito.textContent = 'Non riesco a leggere il file: ' + err.message;
+      esito.style.color = '#8a2f2f';
+    }
+  };
+  lettore.readAsText(f, 'utf-8');
+});
+
+document.getElementById('m-aggiungi').addEventListener('click', function(){
+  var n = document.getElementById('m-nome').value.trim();
+  var d = document.getElementById('m-desc').value.trim();
+  if (!n || !d){ alert('Servono almeno nome e descrizione.'); return; }
+  MURATI.push({
+    n: n, q: document.getElementById('m-quartiere').value,
+    d: { it: d,
+         en: document.getElementById('m-desc-en').value.trim() || d,
+         de: document.getElementById('m-desc-de').value.trim() || d },
+    u: document.getElementById('m-link').value.trim() || undefined
+  });
+  ['m-nome','m-desc','m-desc-en','m-desc-de','m-link'].forEach(function(id){ document.getElementById(id).value = ''; });
+  ridisegna();
+});
+
+document.getElementById('p-aggiungi').addEventListener('click', function(){
+  var n = document.getElementById('p-nome').value.trim();
+  var d = document.getElementById('p-desc').value.trim();
+  if (!n || !d){ alert('Servono nome e descrizione.'); return; }
+  if (FONDAMENTA.length >= 10){ alert('Le pietre sono dieci: il registro è pieno.'); return; }
+  var anno = parseInt(document.getElementById('p-anno').value, 10);
+  var annoMax = 2006;
+  if (!anno || anno > annoMax){ alert('Serve l\'anno di apertura, e deve essere di almeno vent\'anni fa (' + annoMax + ' o prima): è la regola delle Fondamenta.'); return; }
+  FONDAMENTA.push({ n:n, a:anno, d:{ it:d, en:d, de:d } });
+  document.getElementById('p-nome').value = ''; document.getElementById('p-desc').value = ''; document.getElementById('p-anno').value = '';
+  ridisegna();
+});
+
+document.getElementById('scarica').addEventListener('click', function(){
+  var out = SRC;
+  out = out.replace(/var MURATI = \[[\s\S]*?\n\];/, serializza('MURATI', MURATI, COMMENTI_MURATI));
+  out = out.replace(/var FONDAMENTA = \[[\s\S]*?\n\];/,
+    serializza('FONDAMENTA', FONDAMENTA.map(function(r){ return { n:r.n, q:'', d:r.d, a:r.a, u:r.u }; }), '')
+      .replace(/, q:''/g, ''));
+  [['LINK_PRENOTAZIONE','c-link'],['EMAIL','c-email'],['PIVA','c-piva']].forEach(function(coppia){
+    var v = document.getElementById(coppia[1]).value.trim();
+    if (v) out = out.replace(new RegExp("(" + coppia[0] + ":\\s*)'[^']*'"), "$1" + js(v).replace(/\$/g,'$$$$'));
+  });
+  var blob = new Blob([out], { type:'text/html;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'index.html';
+  document.body.appendChild(a); a.click(); a.remove();
+  document.getElementById('esito-scarica').textContent = 'Scaricato. Ora le righe di PowerShell qui sotto.';
+});
+</script>
+</div></body></html>
