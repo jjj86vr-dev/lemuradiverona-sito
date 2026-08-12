@@ -105,15 +105,15 @@ pre{ background:#2b211a; color:#ecdfc6; padding:12px 14px; border-radius:3px; ov
 
     <div class="box">
       <h2>5 &middot; Pubblica</h2>
-      <p style="font-size:14px;">Scarica il file aggiornato, poi incolla queste righe in PowerShell:</p>
+      <p style="font-size:14px;">Scarica il file aggiornato, poi caricalo su GitHub &mdash; tre clic, senza codice:</p>
       <p style="margin-top:12px;"><button id="scarica">Scarica index.html aggiornato</button></p>
       <div class="esito" id="esito-scarica"></div>
-<pre>cd $HOME\Documents\lemuradiverona
-Copy-Item $HOME\Downloads\index.html presale\index.html -Force
-git add presale/index.html
-git commit -m "Aggiorno il muro"
-git push</pre>
-      <p class="nota">Prima di pubblicare puoi aprire il file scaricato col browser e controllare che il muro sia come lo vuoi. Se il sito &egrave; collegato a GitHub via Netlify, dopo il push si aggiorna da solo.</p>
+      <ol style="font-size:14px; line-height:1.8; margin:10px 0 0 20px;">
+        <li>Apri <a href="https://github.com/jjj86vr-dev/lemuradiverona-sito/upload/main/cantiere-d288cfa5eeb7" target="_blank" rel="noopener">la pagina di caricamento del cantiere</a> (accedi come jjj86vr-dev se te lo chiede)</li>
+        <li>Trascina dentro il file <b>index.html</b> appena scaricato (da Download)</li>
+        <li>In fondo premi <b>Commit changes</b></li>
+      </ol>
+      <p class="nota">Prima di pubblicare puoi aprire il file scaricato col browser e controllare che il muro sia come lo vuoi. Dopo il caricamento, il sito si ripubblica da solo in un paio di minuti.</p>
     </div>
   </div>
 
