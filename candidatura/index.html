@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Candidatura — Le Mura di Verona</title>
+<meta name="description" content="Inserisci i tuoi dati e scopri se potrai accedere al gran vallo digitale di Verona. La candidatura è gratuita e senza impegno.">
+<style>
+*{ margin:0; padding:0; box-sizing:border-box; }
+:root{ --notte:#191410; --avorio:#ecdfc6; --sabbia:#c4b59a; --oro:#d9a24e; --oro2:#b3812f; --carta:#f6eedd; }
+html{ background:var(--notte); }
+body{ font-family:Optima,'Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
+  background:var(--notte) url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODQiIGhlaWdodD0iODQiIHZpZXdCb3g9IjAgMCAxODQgODQiPgo8cmVjdCB3aWR0aD0iMTg0IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjMTQxMDBjIi8+CjxnPgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iOTAiIGhlaWdodD0iNDAiIHJ4PSIxLjUiIGZpbGw9IiMxZTE3MTIiLz4KPHJlY3QgeD0iOTIiIHk9IjAiIHdpZHRoPSI5MCIgaGVpZ2h0PSI0MCIgcng9IjEuNSIgZmlsbD0iIzFiMTQxMCIvPgo8cmVjdCB4PSItNDYiIHk9IjQyIiB3aWR0aD0iOTAiIGhlaWdodD0iNDAiIHJ4PSIxLjUiIGZpbGw9IiMxYzE1MTEiLz4KPHJlY3QgeD0iNDYiIHk9IjQyIiB3aWR0aD0iOTAiIGhlaWdodD0iNDAiIHJ4PSIxLjUiIGZpbGw9IiMxZTE3MTIiLz4KPHJlY3QgeD0iMTM4IiB5PSI0MiIgd2lkdGg9IjkwIiBoZWlnaHQ9IjQwIiByeD0iMS41IiBmaWxsPSIjMWMxNTExIi8+CjwvZz4KPGcgZmlsbD0iIzI0MWIxNCIgb3BhY2l0eT0iMC41NSI+CjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI5MCIgaGVpZ2h0PSIyIi8+CjxyZWN0IHg9IjkyIiB5PSIwIiB3aWR0aD0iOTAiIGhlaWdodD0iMiIvPgo8cmVjdCB4PSItNDYiIHk9IjQyIiB3aWR0aD0iOTAiIGhlaWdodD0iMiIvPgo8cmVjdCB4PSI0NiIgeT0iNDIiIHdpZHRoPSI5MCIgaGVpZ2h0PSIyIi8+CjxyZWN0IHg9IjEzOCIgeT0iNDIiIHdpZHRoPSI5MCIgaGVpZ2h0PSIyIi8+CjwvZz4KPC9zdmc+') repeat fixed;
+  background-size:184px 84px; color:var(--avorio);
+  display:flex; flex-direction:column; align-items:center;
+  min-height:100svh; padding:44px 16px 60px; position:relative; overflow-x:hidden; }
+body::before{ content:''; position:fixed; inset:0; pointer-events:none;
+  background: radial-gradient(70% 46% at 50% 24%, rgba(217,162,78,.14), transparent 62%),
+    radial-gradient(120% 90% at 50% 45%, rgba(25,20,16,0) 40%, rgba(15,11,8,.55) 100%); }
+.cornice{ position:fixed; inset:14px; border:1px solid rgba(179,129,47,.55); pointer-events:none; z-index:2; }
+.eyebrow{ font-size:11px; letter-spacing:.5em; text-indent:.5em; text-transform:uppercase;
+  color:var(--sabbia); position:relative; }
+.eyebrow b{ color:var(--oro); }
+h1{ margin:18px 0 0; font-size:clamp(26px,5.4vw,42px); font-weight:600; font-style:italic;
+  text-align:center; line-height:1.25; position:relative; text-shadow:0 4px 16px rgba(0,0,0,.6); }
+h1 b{ color:var(--oro); font-style:normal; }
+.sotto{ margin-top:12px; font-size:clamp(14px,2.2vw,16px); color:var(--sabbia); text-align:center;
+  max-width:560px; line-height:1.7; position:relative; font-style:italic; }
+.pergamena{ margin-top:30px; width:100%; max-width:680px; position:relative;
+  background:var(--carta); border-radius:4px; padding:26px 22px 14px;
+  box-shadow:0 24px 70px rgba(0,0,0,.55), inset 0 0 0 1px rgba(179,129,47,.35),
+    inset 0 0 60px rgba(196,181,154,.28); }
+.pergamena::before{ content:''; position:absolute; inset:8px; border:1px solid rgba(179,129,47,.45);
+  border-radius:2px; pointer-events:none; }
+iframe{ position:relative; display:block; width:100%; border:0; }
+.torna{ margin-top:26px; font-size:12px; letter-spacing:.3em; text-indent:.3em; text-transform:uppercase;
+  color:var(--sabbia); position:relative; text-decoration:none; }
+.torna:hover{ color:var(--oro); }
+</style></head>
+<body>
+  <div class="cornice"></div>
+  <div class="eyebrow">MMXXVII <b>&#9670;</b> Verona</div>
+  <h1>Candida il tuo posto<br>sul <b>gran vallo</b></h1>
+  <p class="sotto">Nessun fiorino &egrave; richiesto: ogni dimanda passa al vaglio del giudizio,
+  e il tributo si versa sol se la porta del muro s&rsquo;apre al mondo.</p>
+
+  <div class="pergamena">
+    <iframe data-tally-src="https://tally.so/embed/XxA0MO?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+      loading="lazy" width="100%" height="600" title="Candidatura — Le Mura di Verona"></iframe>
+  </div>
+
+  <a class="torna" href="../">&larr; Torna al muro</a>
+  <script async src="https://tally.so/widgets/embed.js"></script>
+</body></html>
