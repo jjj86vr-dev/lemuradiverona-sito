@@ -9,12 +9,14 @@
 :root{ --notte:#191410; --avorio:#ecdfc6; --sabbia:#c4b59a; --oro:#d9a24e; --oro2:#b3812f; }
 html{ background:var(--notte); }
 body{ font-family:Optima,'Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
-  background:var(--notte); color:var(--avorio); display:flex; flex-direction:column;
+  background:var(--notte) url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODQiIGhlaWdodD0iODQiIHZpZXdCb3g9IjAgMCAxODQgODQiPgo8cmVjdCB3aWR0aD0iMTg0IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjMTQxMDBjIi8+CjxnPgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iOTAiIGhlaWdodD0iNDAiIHJ4PSIxLjUiIGZpbGw9IiMxZTE3MTIiLz4KPHJlY3QgeD0iOTIiIHk9IjAiIHdpZHRoPSI5MCIgaGVpZ2h0PSI0MCIgcng9IjEuNSIgZmlsbD0iIzFiMTQxMCIvPgo8cmVjdCB4PSItNDYiIHk9IjQyIiB3aWR0aD0iOTAiIGhlaWdodD0iNDAiIHJ4PSIxLjUiIGZpbGw9IiMxYzE1MTEiLz4KPHJlY3QgeD0iNDYiIHk9IjQyIiB3aWR0aD0iOTAiIGhlaWdodD0iNDAiIHJ4PSIxLjUiIGZpbGw9IiMxZTE3MTIiLz4KPHJlY3QgeD0iMTM4IiB5PSI0MiIgd2lkdGg9IjkwIiBoZWlnaHQ9IjQwIiByeD0iMS41IiBmaWxsPSIjMWMxNTExIi8+CjwvZz4KPGcgZmlsbD0iIzI0MWIxNCIgb3BhY2l0eT0iMC41NSI+CjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI5MCIgaGVpZ2h0PSIyIi8+CjxyZWN0IHg9IjkyIiB5PSIwIiB3aWR0aD0iOTAiIGhlaWdodD0iMiIvPgo8cmVjdCB4PSItNDYiIHk9IjQyIiB3aWR0aD0iOTAiIGhlaWdodD0iMiIvPgo8cmVjdCB4PSI0NiIgeT0iNDIiIHdpZHRoPSI5MCIgaGVpZ2h0PSIyIi8+CjxyZWN0IHg9IjEzOCIgeT0iNDIiIHdpZHRoPSI5MCIgaGVpZ2h0PSIyIi8+CjwvZz4KPC9zdmc+') repeat fixed;
+  background-size:184px 84px; color:var(--avorio); display:flex; flex-direction:column;
   align-items:center; text-align:center; min-height:100svh;
   padding:52px 22px 130px; position:relative; overflow-x:hidden; }
 body::before{ content:''; position:fixed; inset:0; pointer-events:none;
-  background: radial-gradient(70% 46% at 50% 30%, rgba(217,162,78,.14), transparent 62%),
-    radial-gradient(120% 70% at 50% 108%, rgba(110,49,38,.38), transparent 60%); }
+  background: radial-gradient(70% 46% at 50% 30%, rgba(217,162,78,.15), transparent 62%),
+    radial-gradient(120% 70% at 50% 108%, rgba(110,49,38,.38), transparent 60%),
+    radial-gradient(120% 90% at 50% 45%, rgba(25,20,16,.0) 40%, rgba(15,11,8,.55) 100%); }
 .cornice{ position:fixed; inset:14px; border:1px solid rgba(179,129,47,.55); pointer-events:none; z-index:2; }
 .eyebrow{ font-size:12px; letter-spacing:.52em; text-indent:.52em; text-transform:uppercase;
   color:var(--sabbia); position:relative; }
